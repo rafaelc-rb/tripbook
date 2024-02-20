@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class Button extends StatelessWidget {
   final String label;
   final double? width;
-  const Button({super.key, required this.label, this.width});
+  const Button(
+      {super.key,
+      required this.label,
+      this.width,
+      required Null Function() onPressed});
 
   @override
   Widget build(BuildContext context) {
