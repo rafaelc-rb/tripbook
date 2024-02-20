@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:tripbook_app/widgets/button.dart';
 import 'package:tripbook_app/widgets/otfield.dart';
 
-class LoginPage extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-  LoginPage({super.key});
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +67,15 @@ class LoginPage extends StatelessWidget {
             if (value == null || value.isEmpty) {
               return 'Please enter your email';
             }
-            return null;
+            // Regex for email validation
+            Pattern pattern =
+                r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+            RegExp regex = RegExp(pattern as String);
+            if (!regex.hasMatch(value)) {
+              return 'Enter a valid email address';
+            } else {
+              return null;
+            }
           },
         ),
         const SizedBox(
@@ -89,6 +102,9 @@ class LoginPage extends StatelessWidget {
       onPressed: () {
         if (_formKey.currentState!.validate()) {
           // Process data.
+          print('Validação bem-sucedida');
+        } else {
+          print('Falha na validação');
         }
       },
     );
