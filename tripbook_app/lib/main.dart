@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Quicksand',
         colorScheme: const ColorScheme.dark().copyWith(
+          background: const Color.fromARGB(255, 40, 40, 48),
           primary: const Color.fromARGB(255, 123, 208, 255),
           secondary: const Color.fromARGB(255, 40, 40, 48),
           onPrimary: Colors.white,

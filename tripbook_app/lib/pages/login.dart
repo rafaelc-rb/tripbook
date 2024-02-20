@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 70.0),
@@ -74,14 +75,14 @@ class _LoginPageState extends State<LoginPage> {
           prefixIcon: const Icon(Icons.person_2_outlined),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your email';
+              return 'Falta o seu e-mail aqui. 😬';
             }
             // Regex for email validation
             Pattern pattern =
                 r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
             RegExp regex = RegExp(pattern as String);
             if (!regex.hasMatch(value)) {
-              return 'Enter a valid email address';
+              return 'Este não é um formato de e-mail. 🫤';
             } else {
               return null;
             }
@@ -96,7 +97,9 @@ class _LoginPageState extends State<LoginPage> {
           hint: 'Senha',
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your password';
+              return 'Falta a sua senha aqui. 😬';
+            } else if (value.length < 8) {
+              return 'A senha é de no mínimo 8 caracteres. 🫤';
             }
             return null;
           },
