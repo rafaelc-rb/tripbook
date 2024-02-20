@@ -53,10 +53,19 @@ class OTFieldState extends State<OTField> {
       child: TextFormField(
         obscureText: _visibility,
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 50, vertical: 0),
+          border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50))),
           hintText: widget.hint,
-          prefixIcon: widget.prefixIcon,
-          suffixIcon: widget.password ? _passwordIcons() : widget.suffixIcon,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 10.0),
+            child: widget.prefixIcon,
+          ),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.only(left: 10.0, right: 20.0),
+            child: widget.password ? _passwordIcons() : widget.suffixIcon,
+          ),
         ),
         validator: widget.validator,
       ),
