@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tripbook_app/widgets/button.dart';
 import 'package:tripbook_app/widgets/otfield.dart';
 
@@ -11,6 +12,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+
+  final GlobalKey<FormState> _recoveryKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +116,7 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         Button(
           label: 'Entrar',
+          fullWidth: true,
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               // Process data.
@@ -137,17 +141,61 @@ class _LoginPageState extends State<LoginPage> {
             context: context,
             builder: (BuildContext context) {
               return Container(
-                height: 200,
-                color: Colors.amber,
-                child: Center(
+                height: 330,
+                color: Theme.of(context).colorScheme.background,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 30.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const Text('BottomSheet de recuperação de senha'),
-                      ElevatedButton(
-                        child: const Text('Fechar BottomSheet'),
-                        onPressed: () => Navigator.pop(context),
+                      Text('Vamos recuperar seu acesso.',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold)),
+                      Expanded(
+                        child: Form(
+                            key: _recoveryKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                    'Enviaremos um e-mail para você criar uma nova senha de acesso.',
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                OTField(
+                                  hint: 'E-mail',
+                                  prefixIcon:
+                                      const Icon(Icons.person_2_outlined),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Falta o seu e-mail aqui. 😬';
+                                    }
+                                    // Regex for email validation
+                                    Pattern pattern =
+                                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                    RegExp regex = RegExp(pattern as String);
+                                    if (!regex.hasMatch(value)) {
+                                      return 'Este não é um formato de e-mail. 🫤';
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                ),
+                                Button(
+                                  label: 'Enviar e-mail de recuperação',
+                                  onPressed: () {
+                                    if (_recoveryKey.currentState!.validate()) {
+                                      print('E-mail enviado!');
+                                      Navigator.pop(context);
+                                    } else {
+                                      print('Formato incorreto!');
+                                    }
+                                  },
+                                )
+                              ],
+                            )),
                       )
                     ],
                   ),
@@ -179,7 +227,14 @@ class _LoginPageState extends State<LoginPage> {
                       const Text('BottomSheet de cadastro'),
                       ElevatedButton(
                         child: const Text('Fechar BottomSheet'),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            print('E-mail enviado!');
+                            Navigator.pop(context);
+                          } else {
+                            print('Formato incorreto!');
+                          }
+                        },
                       )
                     ],
                   ),
