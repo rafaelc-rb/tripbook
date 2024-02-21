@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tripbook_app/widgets/button.dart';
 import 'package:tripbook_app/widgets/otfield.dart';
+
+import 'register.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -213,35 +214,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildRegisterButton(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          showModalBottomSheet<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return Container(
-                height: 200,
-                color: Colors.amber,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Text('BottomSheet de cadastro'),
-                      ElevatedButton(
-                        child: const Text('Fechar BottomSheet'),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            print('E-mail enviado!');
-                            Navigator.pop(context);
-                          } else {
-                            print('Formato incorreto!');
-                          }
-                        },
-                      )
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
+          Navigator.pushNamed(context, '/register');
         },
         child: Text(
           'Primeira vez aqui? ✋',

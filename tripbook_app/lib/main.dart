@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tripbook_app/pages/home.dart';
 
 import 'pages/login.dart';
+import 'pages/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +16,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: const HomePage(),
 
       debugShowCheckedModeBanner: false,
+
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+      },
 
       darkTheme: ThemeData(
         useMaterial3: true,
