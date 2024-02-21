@@ -17,11 +17,11 @@ class SAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(
-            Icons.account_circle_outlined,
+            Icons.account_circle,
             size: 50.0,
           ),
           onPressed: () {
-            // Adicione a ação do botão aqui
+            Navigator.pushNamed(context, '/profile');
           },
         ),
       ],

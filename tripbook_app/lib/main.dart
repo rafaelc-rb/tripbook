@@ -4,6 +4,7 @@ import 'pages/home.dart';
 import 'pages/login.dart';
 import 'pages/my_trips.dart';
 import 'pages/new_trip.dart';
+import 'pages/profile.dart';
 import 'pages/register.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/profile': (context) => const ProfilePage(),
         '/new-trip': (context) => const NewTripPage(),
         '/my-trips': (context) => const MyTripsPage(),
       },
