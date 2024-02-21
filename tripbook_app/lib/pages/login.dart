@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tripbook_app/widgets/button.dart';
-import 'package:tripbook_app/widgets/otfield.dart';
 
-import 'register.dart';
+import '../widgets/button.dart';
+import '../widgets/otfield.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
