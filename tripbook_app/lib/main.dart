@@ -30,6 +30,18 @@ class MyApp extends StatelessWidget {
         '/my-trips': (context) => const MyTripsPage(),
       },
 
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Quicksand',
+        colorScheme: const ColorScheme.light().copyWith(
+          background: Colors.white,
+          primary: const Color.fromARGB(255, 123, 208, 255),
+          secondary: Colors.white,
+          onPrimary: Colors.white,
+          onSecondary: Colors.black,
+          // Adicione outras cores aqui
+        ),
+      ),
       darkTheme: ThemeData(
         useMaterial3: true,
         fontFamily: 'Quicksand',

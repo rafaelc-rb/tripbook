@@ -38,8 +38,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
         color: Theme.of(context).colorScheme.secondary,
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.primary.withOpacity(.15),
-            blurRadius: 15,
+            color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+            blurRadius: 30,
             offset: const Offset(0, 10),
           ),
         ],
@@ -85,7 +85,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                 size: size.width * .076,
                 color: index == currentIndex
                     ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.onPrimary,
+                    : null,
               ),
               SizedBox(height: size.width * .03),
             ],

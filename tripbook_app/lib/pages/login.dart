@@ -52,19 +52,19 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildLogo(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('Trip',
-            style: Theme.of(context)
-                .textTheme
-                .displayMedium
-                ?.copyWith(fontWeight: FontWeight.bold)),
-        Text('Book',
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold))
-      ],
+    return RichText(
+      text: TextSpan(
+        style: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+        children: <TextSpan>[
+          const TextSpan(text: 'Trip'),
+          TextSpan(
+            text: 'Book',
+            style: TextStyle(color: Theme.of(context).colorScheme.primary),
+          ),
+        ],
+      ),
     );
   }
 
