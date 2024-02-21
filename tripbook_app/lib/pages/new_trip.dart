@@ -14,12 +14,14 @@ class NewTripPage extends StatelessWidget {
           text: TextSpan(
             style: Theme.of(context).textTheme.titleMedium,
             children: <TextSpan>[
+              const TextSpan(text: 'Olá '),
               TextSpan(
                 text: userName,
                 style: TextStyle(color: Theme.of(context).colorScheme.primary)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
-              const TextSpan(text: ' vamos planejar a sua próxima viagem. 😊'),
+              const TextSpan(
+                  text: ', pronto para planejar sua próxima viagem? 😊'),
             ],
           ),
         ),
