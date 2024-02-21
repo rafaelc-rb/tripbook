@@ -12,13 +12,13 @@ class NewTripPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SAppBar(title: [
-        const TextSpan(text: 'Olá '),
+        const TextSpan(text: 'E aí '),
         TextSpan(
           text: userName,
           style: TextStyle(color: Theme.of(context).colorScheme.primary)
               .copyWith(fontWeight: FontWeight.bold),
         ),
-        const TextSpan(text: ', pronto para planejar sua próxima viagem? 😊'),
+        const TextSpan(text: ', pronto para planejar sua próxima viagem?'),
       ]),
       bottomNavigationBar: const BottomNavbar(),
     );

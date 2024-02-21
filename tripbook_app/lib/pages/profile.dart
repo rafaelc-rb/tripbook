@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
             text: TextSpan(
               style: Theme.of(context).textTheme.headlineLarge,
               children: <TextSpan>[
-                const TextSpan(text: 'E aí, '),
+                const TextSpan(text: 'E aí '),
                 TextSpan(
                   text: userName,
                   style: TextStyle(color: Theme.of(context).colorScheme.primary)

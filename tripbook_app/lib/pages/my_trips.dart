@@ -12,13 +12,13 @@ class MyTripsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: SAppBar(title: [
-        const TextSpan(text: 'Olá '),
+        const TextSpan(text: 'Blz '),
         TextSpan(
           text: userName,
           style: TextStyle(color: Theme.of(context).colorScheme.primary)
               .copyWith(fontWeight: FontWeight.bold),
         ),
-        const TextSpan(text: ', aqui estão todas as suas viagens. 😊'),
+        const TextSpan(text: '? Aqui estão todas as suas viagens.'),
       ]),
       bottomNavigationBar: const BottomNavbar(),
     );

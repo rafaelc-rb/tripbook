@@ -12,14 +12,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SAppBar(title: [
-        const TextSpan(text: 'Olá '),
+        const TextSpan(text: 'E aí '),
         TextSpan(
           text: userName,
           style: TextStyle(color: Theme.of(context).colorScheme.primary)
               .copyWith(fontWeight: FontWeight.bold),
         ),
-        const TextSpan(
-            text: ', seja bem-vindo. Vamos cuidar das suas viagens. 😊'),
+        const TextSpan(text: ', blz? Vamos planejar e guardar suas viagens.'),
       ]),
       bottomNavigationBar: const BottomNavbar(),
     );
