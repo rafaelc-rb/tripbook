@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tripbook_app/widgets/bottom_navbar.dart';
 
-class HomePage extends StatelessWidget {
+class NewTripPage extends StatelessWidget {
   final String userName = 'Rafael';
 
-  const HomePage({super.key});
+  const NewTripPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,12 @@ class HomePage extends StatelessWidget {
           text: TextSpan(
             style: Theme.of(context).textTheme.titleMedium,
             children: <TextSpan>[
-              const TextSpan(text: 'Olá '),
               TextSpan(
                 text: userName,
                 style: TextStyle(color: Theme.of(context).colorScheme.primary)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
-              const TextSpan(
-                  text: ', seja bem-vindo. Vamos cuidar das suas viagens. 😊'),
+              const TextSpan(text: ' vamos planejar a sua próxima viagem. 😊'),
             ],
           ),
         ),

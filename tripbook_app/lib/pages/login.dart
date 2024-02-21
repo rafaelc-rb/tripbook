@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 70.0),
@@ -62,11 +62,8 @@ class _LoginPageState extends State<LoginPage> {
                 ?.copyWith(fontWeight: FontWeight.bold)),
         Text('Book',
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold) ??
-                TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold))
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold))
       ],
     );
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tripbook_app/pages/home.dart';
 
+import 'pages/home.dart';
 import 'pages/login.dart';
+import 'pages/my_trips.dart';
+import 'pages/new_trip.dart';
 import 'pages/register.dart';
 
 void main() {
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/new-trip': (context) => const NewTripPage(),
+        '/my-trips': (context) => const MyTripsPage(),
       },
 
       darkTheme: ThemeData(
@@ -32,8 +36,9 @@ class MyApp extends StatelessWidget {
         colorScheme: const ColorScheme.dark().copyWith(
           background: const Color.fromARGB(255, 40, 40, 48),
           primary: const Color.fromARGB(255, 123, 208, 255),
-          secondary: const Color.fromARGB(255, 40, 40, 48),
+          secondary: Colors.black,
           onPrimary: Colors.white,
+          onSecondary: Colors.white,
           // Adicione outras cores aqui
         ),
       ), // Define o tema escuro aqui

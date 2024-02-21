@@ -23,15 +23,18 @@ class Button extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor:
               MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
-          foregroundColor: MaterialStateProperty.all(Colors.white),
+          foregroundColor: MaterialStateProperty.all(
+              Theme.of(context).colorScheme.onPrimary),
           overlayColor: MaterialStateProperty.all(
               Theme.of(context).colorScheme.secondary),
         ),
         child: Text(label,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold) ??
-                const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold) ??
+                TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold)),
       ),
     );
   }
